@@ -236,29 +236,45 @@ gg.E14.1 <- RenameIdents(gg.E14.1,
 
 
 # Definitive plots
-DimPlot(gg.E14.1, cols = c("Low quality cells" = "#E0E0E0",
-                           "Astrocytes" = "#9DDFE8",
-                           "Thalamus" = "#FF80FF",
-                           "Prethalamus" = "#FFC5D9",
-                           "Pretectum" = "#FFE0B3",
-                           "Hypothalamus" = "#B1E0B7"), pt.size = 0.7)
+DimPlot(gg.E14.1, cols = c("Low quality cells" = "#808080",
+                           "Astrocytes" = "#76BDCF",
+                           "Thalamus" = "#6A51A3",
+                           "Prethalamus" = "#CE75AD",
+                           "Pretectum" = "#F8B660",
+                           "Hypothalamus" = "#00B19D"), pt.size = 0.7)
 ggsave("E14_Elena.png", get_last_plot())
 
-FeaturePlot(gg.E14.1, "LHX9", pt.size = 0.7) # Thalamus
+plots <- FeaturePlot(gg.E14.1, "LHX9", pt.size = 0.7) # Thalamus
+plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text(size = 25)))
+CombinePlots(plots = plots)
 ggsave("LHX9.png", get_last_plot())
-FeaturePlot(gg.E14.1, "PROX1", pt.size = 0.7) # Thalamus
+plots <- FeaturePlot(gg.E14.1, "PROX1", pt.size = 0.7) # Thalamus
+plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text(size = 25)))
+CombinePlots(plots = plots)
 ggsave("PROX1.png", get_last_plot())
-FeaturePlot(gg.E14.1, "ISL1", pt.size = 0.7) # Prethalamus
+plots <- FeaturePlot(gg.E14.1, "ISL1", pt.size = 0.7) # Prethalamus
+plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text(size = 25)))
+CombinePlots(plots = plots)
 ggsave("ISL1.png", get_last_plot())
-FeaturePlot(gg.E14.1, "MEIS2", pt.size = 0.7) # Prethalamus
+plots <- FeaturePlot(gg.E14.1, "MEIS2", pt.size = 0.7) # Prethalamus
+plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text(size = 25)))
+CombinePlots(plots = plots)
 ggsave("MEIS2.png", get_last_plot())
-FeaturePlot(gg.E14.1, "GATA3", pt.size = 0.7) # Prethalamus
+plots <- FeaturePlot(gg.E14.1, "GATA3", pt.size = 0.7) # Prethalamus
+plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text(size = 25)))
+CombinePlots(plots = plots)
 ggsave("GATA3.png", get_last_plot())
-FeaturePlot(gg.E14.1, "LMO3", pt.size = 0.7) # Pretectum
+plots <- FeaturePlot(gg.E14.1, "LMO3", pt.size = 0.7) # Pretectum
+plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text(size = 25)))
+CombinePlots(plots = plots)
 ggsave("LMO3.png", get_last_plot())
-FeaturePlot(gg.E14.1, "AQP4", pt.size = 0.7) # Astrocytes
+plots <- FeaturePlot(gg.E14.1, "AQP4", pt.size = 0.7) # Astrocytes
+plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text(size = 25)))
+CombinePlots(plots = plots)
 ggsave("AQP4.png", get_last_plot())
-FeaturePlot(gg.E14.1, "OTP", pt.size = 0.7) # Hypothalamus
+plots <- FeaturePlot(object = gg.E14.1, "OTP", pt.size = 0.7) # Hypothalamus
+plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text(size = 25)))
+CombinePlots(plots = plots)
 ggsave("OTP.png", get_last_plot())
 
 VlnPlot(gg.E14.1, features = c("nFeature_RNA", "nCount_RNA", "Percent_mt"), group.by = "SCT_snn_res.0.5")
