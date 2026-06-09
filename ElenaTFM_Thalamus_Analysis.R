@@ -277,5 +277,20 @@ plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text
 CombinePlots(plots = plots)
 ggsave("OTP.png", get_last_plot())
 
+plots <- FeaturePlot(object = gg.E14.1, "SLC17A6", pt.size = 0.7) # Glutamatergic neurons
+plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text(size = 25)))
+CombinePlots(plots = plots)
+ggsave("SLC17A6.png", get_last_plot())
+
+plots <- FeaturePlot(object = gg.E14.1, "GAD2", pt.size = 0.7) # GABAergic neurons
+plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text(size = 25)))
+CombinePlots(plots = plots)
+ggsave("GAD2.png", get_last_plot())
+
+plots <- FeaturePlot(object = gg.E14.1, "SNAP25", pt.size = 0.7) # Mature neurons
+plots <- lapply(X = plots, FUN = function(x) x + theme(plot.title = element_text(size = 25)))
+CombinePlots(plots = plots)
+ggsave("SNAP25.png", get_last_plot())
+
 VlnPlot(gg.E14.1, features = c("nFeature_RNA", "nCount_RNA", "Percent_mt"), group.by = "SCT_snn_res.0.5")
 ggsave("low_quality.png", get_last_plot(), width = 16)
